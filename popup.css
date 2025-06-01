@@ -1,0 +1,376 @@
+:root {
+    /* Light theme variables */
+    --bg-primary-light: #ffffff;
+    --bg-secondary-light: #f5f7fa;
+    --text-primary-light: #1a202c;
+    --text-secondary-light: #4a5568;
+    --accent-light: #6366f1;
+    --accent-hover-light: #4f46e5;
+    --border-light: #e2e8f0;
+    --input-bg-light: #f8fafc;
+    --slider-bg-light: #e2e8f0;
+    --slider-thumb-light: #6366f1;
+    --switch-bg-light: #cbd5e1;
+    --switch-thumb-light: #ffffff;
+    --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  
+    /* Dark theme variables */
+    --bg-primary-dark: #0f172a;
+    --bg-secondary-dark: #1e293b;
+    --text-primary-dark: #f1f5f9;
+    --text-secondary-dark: #94a3b8;
+    --accent-dark: #818cf8;
+    --accent-hover-dark: #6366f1;
+    --border-dark: #334155;
+    --input-bg-dark: #1e293b;
+    --slider-bg-dark: #334155;
+    --slider-thumb-dark: #818cf8;
+    --switch-bg-dark: #334155;
+    --switch-thumb-dark: #f1f5f9;
+    --shadow-dark: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  
+    /* Default theme (light) */
+    --bg-primary: var(--bg-primary-light);
+    --bg-secondary: var(--bg-secondary-light);
+    --text-primary: var(--text-primary-light);
+    --text-secondary: var(--text-secondary-light);
+    --accent: var(--accent-light);
+    --accent-hover: var(--accent-hover-light);
+    --border: var(--border-light);
+    --input-bg: var(--input-bg-light);
+    --slider-bg: var(--slider-bg-light);
+    --slider-thumb: var(--slider-thumb-light);
+    --switch-bg: var(--switch-bg-light);
+    --switch-thumb: var(--switch-thumb-light);
+    --shadow: var(--shadow-light);
+  }
+  
+  /* Dark theme class */
+  .dark-mode {
+    --bg-primary: var(--bg-primary-dark);
+    --bg-secondary: var(--bg-secondary-dark);
+    --text-primary: var(--text-primary-dark);
+    --text-secondary: var(--text-secondary-dark);
+    --accent: var(--accent-dark);
+    --accent-hover: var(--accent-hover-dark);
+    --border: var(--border-dark);
+    --input-bg: var(--input-bg-dark);
+    --slider-bg: var(--slider-bg-dark);
+    --slider-thumb: var(--slider-thumb-dark);
+    --switch-bg: var(--switch-bg-dark);
+    --switch-thumb: var(--switch-thumb-dark);
+    --shadow: var(--shadow-dark);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+  
+  body {
+    width: 320px;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .container {
+    padding: 16px;
+  }
+  
+  /* Header */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .logo h1 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0;
+  }
+  
+  .logo svg {
+    color: var(--accent);
+  }
+  
+  .theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 18px;
+    padding: 4px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+  }
+  
+  .theme-toggle:hover {
+    background-color: var(--bg-secondary);
+  }
+  
+  /* Password display */
+  .password-display-container {
+    position: relative;
+    margin-bottom: 16px;
+  }
+  
+  #password-display {
+    width: 100%;
+    padding: 10px 12px;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-family: "Roboto Mono", monospace;
+    font-size: 14px;
+    outline: none;
+    box-shadow: var(--shadow);
+    padding-right: 40px; /* Make room for the copy button */
+  }
+  
+  #copy-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+  
+  #copy-button:hover {
+    color: var(--accent);
+    background-color: var(--bg-primary);
+  }
+  
+  #copy-button:active {
+    transform: scale(0.95);
+  }
+  
+  #copy-button svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* Password strength indicator */
+  .strength-meter {
+    height: 4px;
+    background-color: var(--slider-bg);
+    border-radius: 2px;
+    margin-top: 8px;
+    overflow: hidden;
+  }
+  
+  .strength-meter-fill {
+    height: 100%;
+    width: 0;
+    transition: width 0.3s, background-color 0.3s;
+  }
+  
+  .strength-meter-fill.weak {
+    background-color: #ef4444;
+    width: 25%;
+  }
+  
+  .strength-meter-fill.medium {
+    background-color: #f59e0b;
+    width: 50%;
+  }
+  
+  .strength-meter-fill.strong {
+    background-color: #10b981;
+    width: 75%;
+  }
+  
+  .strength-meter-fill.very-strong {
+    background-color: #059669;
+    width: 100%;
+  }
+  
+  .strength-text {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+    text-align: right;
+  }
+  
+  /* Length slider */
+  .length-option {
+    margin-bottom: 16px;
+  }
+  
+  .length-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .length-header label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+  
+  #length-value {
+    font-weight: 600;
+    color: var(--accent);
+    background-color: var(--bg-secondary);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+  }
+  
+  input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    background-color: var(--slider-bg);
+    border-radius: 3px;
+    outline: none;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background-color: var(--slider-thumb);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Options grid */
+  .options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .option:hover {
+    background-color: rgba(99, 102, 241, 0.05);
+  }
+  
+  .option input[type="checkbox"] {
+    display: none;
+  }
+  
+  .checkbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, border-color 0.2s;
+  }
+  
+  .option input[type="checkbox"]:checked + .checkbox {
+    background-color: var(--accent);
+    border-color: var(--accent);
+  }
+  
+  .checkbox svg {
+    color: white;
+    width: 12px;
+    height: 12px;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  
+  .option input[type="checkbox"]:checked + .checkbox svg {
+    opacity: 1;
+  }
+  
+  .option label {
+    font-size: 13px;
+    color: var(--text-primary);
+    user-select: none;
+  }
+  
+  /* Generate button */
+  .generate-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .generate-btn:hover {
+    background-color: var(--accent-hover);
+  }
+  
+  .generate-btn:active {
+    transform: translateY(1px);
+  }
+  
+  .generate-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .generate-btn:disabled {
+    background-color: var(--slider-bg);
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  
+  /* Footer */
+  .footer {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-secondary);
+  }
+  
+  /* Utility classes */
+  .text-accent {
+    color: var(--accent);
+  }  

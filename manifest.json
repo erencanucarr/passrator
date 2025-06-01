@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Passrator",
+  "version": "1.0",
+  "description": "Sadece Bir Kaç Tuşla Karmaşık Ve Güçlü Şifreler Oluşturun.",
+  "permissions": ["storage", "clipboardWrite"],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

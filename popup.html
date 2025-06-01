@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passrator</title>
+    <link rel="stylesheet" href="popup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                <h1>Passrator</h1>
+            </div>
+            <button id="theme-toggle" class="theme-toggle" title="Toggle theme">☀️</button>
+        </header>
+
+        <div class="password-display-container">
+            <input type="text" id="password-display" readonly placeholder="Generated password">
+            <button id="copy-button" title="Copy to clipboard">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+            </button>
+            <div class="strength-meter">
+                <div class="strength-meter-fill" id="strength-fill"></div>
+            </div>
+            <div class="strength-text" id="strength-text">Password strength</div>
+        </div>
+
+        <div class="length-option">
+            <div class="length-header">
+                <label for="length">Password Length</label>
+                <span id="length-value">16</span>
+            </div>
+            <input type="range" id="length" min="8" max="64" value="16">
+        </div>
+
+        <div class="options-grid">
+            <div class="option">
+                <input type="checkbox" id="uppercase" checked>
+                <div class="checkbox">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <label for="uppercase">Uppercase (A-Z)</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="lowercase" checked>
+                <div class="checkbox">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <label for="lowercase">Lowercase (a-z)</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="numbers" checked>
+                <div class="checkbox">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <label for="numbers">Numbers (0-9)</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="symbols" checked>
+                <div class="checkbox">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <label for="symbols">Symbols (!@#$...)</label>
+            </div>
+        </div>
+
+        <button id="generate-button" class="generate-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 2v6h-6"></path>
+                <path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path>
+                <path d="M3 12a9 9 0 0 0 15 6.7L21 16"></path>
+                <path d="M21 22v-6h-6"></path>
+            </svg>
+            Generate Password
+        </button>
+        
+        <div class="footer">
+            Güçlü şifreler oluşturmak için hızlı ve güvenli çözüm
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
